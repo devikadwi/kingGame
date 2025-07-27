@@ -3,22 +3,25 @@ import MainScene from './scenes/MainScene.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import TestimonialScene from './scenes/TestimonialScene.js';
 
+
 const config = {
   type: Phaser.AUTO,
-  width: 800, // or whatever fixed width you want
-  height: 600, // fixed height
   scale: {
-    mode: Phaser.Scale.NONE, // Prevents resizing
-    autoCenter: Phaser.Scale.CENTER_BOTH // Center on screen
+    mode: Phaser.Scale.RESIZE,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 1280,
+    height: 720
   },
-  scene: [StartScene, MainScene, GameOverScene], // your scenes
+  render: { pixelArt: true },
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 600 },
+      gravity: { y: 800 },
       debug: false
     }
-  }
+  },
+  fontFamily: 'Iceberg',
+  scene: [StartScene, MainScene, GameOverScene, TestimonialScene] // order matters
 };
 
-const game = new Phaser.Game(config);
+new Phaser.Game(config);
